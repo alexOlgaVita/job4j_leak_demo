@@ -40,4 +40,12 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(text, user);
     }
+
+    @Override
+    public String toString() {
+        return "Comment: {"
+                + "text = " + this.text
+                + " user = " + this.user
+                + "}";
+    }
 }

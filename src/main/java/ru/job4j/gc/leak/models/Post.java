@@ -52,4 +52,13 @@ public class Post {
     public int hashCode() {
         return Objects.hash(id, text, comments);
     }
+
+    @Override
+    public String toString() {
+        return "Post: {"
+                + "id = " + this.id
+                + " text = " + this.text
+                + " comments = " + this.comments
+                + "}";
+    }
 }
