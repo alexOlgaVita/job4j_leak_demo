@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.StringJoiner;
 
 public class UserGenerator implements Generate {
 
@@ -31,11 +32,12 @@ public class UserGenerator implements Generate {
     public void generate() {
         users.clear();
         for (int i = 0; i < NEW_USERS; i++) {
-            var name = surnames.get(random.nextInt(surnames.size())) + SEPARATOR
-                    + names.get(random.nextInt(names.size())) + SEPARATOR
-                    + patrons.get(random.nextInt(patrons.size()));
+            var name = new StringJoiner(SEPARATOR);
+            name.add(surnames.get(random.nextInt(surnames.size())))
+                    .add(surnames.get(random.nextInt(names.size())))
+                    .add(surnames.get(random.nextInt(patrons.size())));
             var user = new User();
-            user.setName(name);
+            user.setName(name.toString());
             users.add(user);
         }
     }
